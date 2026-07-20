@@ -1,7 +1,8 @@
 # Electric-Vehicle-Market-Dashboard-In-Progress-
-A comprehensive analytical dashboard focusing on demand trends in the EV industry, the competitive landscape, and the impact of recent Oil Shocks
+
 
 Context:
+
 In 2026, the Global Electric Vehicle Industry is facing an inflection point.  Despite sales in the EV markets surpassing 20 million annual sales - a 28% share of global car sales the growth is no longer as uniform as it once was.  A wide-reaching array of policies, macroeconomic pressures, technological convergences, and pressure from emerging competitors has now intensified competition between the United States, Europe, China, and South Korea.
 
 North American EV markets were restructured almost immediately when a $7,500 IRA Tax Credit was introduced, while China’s subsidy to EV manufacturers expired, testing whether or not the dominance of their home-grown makers such as BYD were truly demand-driven or state-manufactured.
