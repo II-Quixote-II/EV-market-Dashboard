@@ -1,1 +1,159 @@
+Question 3:
+
+China’s Emerging EV Manufacturers and its Value Proposition
+
+# China's Value Proposition
+
+# BRAND LEVEL VALUE AND QUALIUTY SUMMARY
+
+bubble_data = (
+    df.groupby(['brand', 'country_of_origin'])
+        .agg(
+        Avg_Range_Per_Dollar = ('range_per_dollar', 'mean'),
+        Avg_Customer_Rating = ('customer_rating', 'mean'),
+        Total_Sales = ('annual_sales_units', 'sum'),
+        Avg_Price = ('price_usd', 'mean')
+).round(2)
+.reset_index()
+)
+
+print("Brand Value Summary")
+print(bubble_data.to_string())
+
+# Interestingly enough, BYD is one of the brands that have the best Average Range per dollar.  
+
+# ----- mid-range segment
+
+midrange_value = (
+    df[df['market_segment'] == 'Mid-range']
+    .groupby('country_of_origin')
+    .agg(
+        Avg_Price            = ('price_usd',          'mean'),
+        Avg_Range            = ('range_miles',         'mean'),
+        Range_Per_Dollar     = ('range_per_dollar',    'mean'),
+        Charge_Per_Dollar    = ('charge_per_dollar',   'mean'),
+        Avg_Rating           = ('customer_rating',     'mean')
+    ).round(3)
+    .sort_values('Range_Per_Dollar', ascending=False)
+)
+
+print("midrange values by country")
+print(midrange_value.to_string())
+
+# ---------- Chinese Brand Sales Direction After subsidy expired
+
+chinese_brands = ['BYD', 'NIO', 'Xiaomi']
+china_yearly = (
+    df[df['brand'].isin(chinese_brands)]
+    .groupby('year')['annual_sales_units']
+    .sum()
+)
+
+china_growth = (china_yearly.pct_change() * 100).round(1)
+
+print("Chinese Brand sales direction")
+print(pd.DataFrame({'Sales': china_yearly, 'YoY_Growth_%': china_growth}).to_string())
+
+
+#-------------------- Charts -----------
+
+fig, axes = plt.subplots(1, 3, figsize=(18, 6))
+fig.suptitle('China\'s Value Proposition, Volume or Quality?')
+
+country_colors = {
+    'US':          '#E50914',
+    'Germany':     '#2980b9',
+    'China':       '#e67e22',
+    'South Korea': '#27ae60',
+    'Japan':       '#8e44ad',
+    'Sweden':      '#95a5a6'
+}
+
+# Chart 1 - Bubble Chart for Value vs Quality Vs Volume
+
+ax = axes[0]
+
+for _, row in bubble_data.iterrows():
+    color = country_colors.get(row['country_of_origin'], 'grey')
+    size = row['Total_Sales'] / 500_000 # Scale Bubble
+    
+    ax.scatter(row['Avg_Range_Per_Dollar'], row['Avg_Customer_Rating'], 
+    s=size, color=color, alpha=0.6, edgecolors='white', linewidth=0.5)
+    
+    ax.annotate(row['brand'],
+                (row['Avg_Range_Per_Dollar'], row['Avg_Customer_Rating']), 
+                fontsize=6.5, ha='center', va='bottom')
+
+# median market lines
+
+ax.axhline(y=bubble_data['Avg_Customer_Rating'].median(), color= 'grey', linestyle='--', alpha=0.5)
+ax.axhline(y=bubble_data['Avg_Range_Per_Dollar'].median(), color= 'grey', linestyle='--', alpha=0.5)
+
+ax.set_xlabel('Range per $1000 spent (miles)') 
+ax.set_ylabel('Average customer rating') 
+ax.set_title('Value vs Quality vs Volume \n (Bubble = Total Sales)') 
+
+# Legend
+
+from matplotlib.patches import Patch
+legend_elements = [Patch(facecolor=c, label=country)
+                   for country, c in country_colors.items()]
+ax.legend(handles=legend_elements, fontsize=7, loc='lower right')
+ax.grid(alpha=0.3)
+
+# Chart 2 Mid-Range Value By country / Grouped Bar
+
+ax = axes[1]
+metrics = ['Range_Per_Dollar', 'Charge_Per_Dollar']
+countries = midrange_value.index.tolist()
+x = np.arange(len(countries))
+width = 0.35
+
+# Normalise 0-1 for fair comparisons
+
+for i, metric in enumerate(metrics):
+    vals = midrange_value[metric]
+    vals_normed = (vals - vals.min()) / (vals.max() - vals.min())
+    label = 'Range Per $1k' if metric == 'Range_Per_Dollar' else 'Charge_Per_Speed per $1k'
+    bars = ax.bar(x + i * width, vals_normed, width, label=label, alpha=0.85)
+
+
+ax.set_xticks(x + width / 2)
+ax.set_xticklabels(countries, rotation=15, ha='right', fontsize=8)
+ax.set_ylabel('Normalised Score (0-1)')
+ax.set_title('Mid-Range Value Metrics by Country')
+ax.legend(fontsize=8)
+ax.grid(alpha=0.3, axis='y')
+
+# Chart 3
+
+ax = axes[2]
+ax.plot(china_yearly.index, china_yearly.values, 'o-',
+        color='#E67E22', linewidth=2.5, label='chinese Brand Sales')
+
+ax2 = ax.twinx()
+ax2.bar(china_growth.index, china_growth.values,
+        color=['#27AE60' if v >= 0 else '#E50914' for v in china_growth.values],
+        alpha=0.4, label='YoY Growth %')
+ax2.set_ylabel('YoY Growth %')
+ax2.axhline(y=0, color='black', linewidth=0.5)
+
+# Mark subsidy expiry
+ax.axvline(x=2023, color='red', linestyle='--', alpha=0.7)
+ax.text(2023.05, china_yearly.max() * 0.95,
+        'China NEV\nSubsidy Expiry', fontsize=7, color='red')
+
+ax.set_xlabel('Year')
+ax.set_ylabel('Total Annual Sales Units')
+ax.set_title('Chinese Brand Sales Trajectory\n vs NEV Subsidy Expiry')
+ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f'{x/1e6:.0f}M'))
+
+lines1, labels1 = ax.get_legend_handles_labels()
+lines2, labels2 = ax2.get_legend_handles_labels()
+ax.legend(lines1 + lines2, labels1 + labels2, fontsize=7)
+ax.grid(alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
 
