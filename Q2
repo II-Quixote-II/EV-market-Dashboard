@@ -77,7 +77,7 @@ segment_colors = {
     'Luxury': '#8E44AD',
 }
 
-# Segment Sales + Oil Prices
+# Chart 1: Segment Sales + Oil Prices
 
 ax1 = axes[0]
 ax2 = ax1.twinx()
