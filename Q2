@@ -105,7 +105,7 @@ lines2, labels2 = ax2.get_legend_handles_labels()
 ax1.legend(lines1 + lines2, labels1 + labels2, fontsize=7)
 ax1.grid(alpha=0.3)
 
-# ── Chart 2: Grouped Bar — YoY Growth by Segment ─────────────
+# Chart 2: Grouped Bar - YoY Growth by Segment 
 ax = axes[1]
 growth_clean = segment_growth.dropna()   # Remove 2020 NaN row
 years  = growth_clean.index.tolist()
@@ -130,7 +130,7 @@ ax.grid(alpha=0.3, axis='y')
 ax.axvspan(0.9, 1.7, alpha=0.08, color='red')
 ax.text(2.1, ax.get_ylim()[1] * 0.9, '2022\nOil Shock', fontsize=7, color='red')
 
-# ── Chart 3: Elasticity Bar Chart ────────────────────────────
+# Chart 3: Elasticity Bar Chart
 ax = axes[2]
 colors_list = [segment_colors[s] for s in elasticity_df.index]
 bars = ax.barh(elasticity_df.index, elasticity_df['Elasticity'],
