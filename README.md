@@ -33,7 +33,9 @@ Both plotted 2020-2026
 * Stacked Area chart (Market Share by Brand) 
 
 X axis: Year
+
 Y axis: % of total annual sales
+
 Each brand a different colour, stacked to 100%
 
 * Radar / Spider Chart (Tesla vs BYD vs Hyundai vs BMW)
@@ -70,6 +72,7 @@ Colour and Highlight the 2022 bars distinctly
 * Elasiticy Bar Chart
 
 X-Axis- Market Segment
+
 Y-Axis- Demand Elasticity coefficient (% sales change per % oil price change)
 Horizontal reference line at Zero
 
