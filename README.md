@@ -38,7 +38,7 @@ Y axis: % of total annual sales
 
 Each brand a different colour, stacked to 100%
 
-* Radar / Spider Chart (Tesla vs BYD vs Hyundai vs BMW)
+* Radar Chart (Tesla vs BYD vs Hyundai vs BMW)
 
 Axes: Range, Charging Speed, Autopilot Level, Customer Rating, Value per Dollar, Safety Rating
 One polygon per brand
@@ -60,14 +60,16 @@ Charts:
 * Dual Axis Line Chart
 
 Left Axis- Annual Sales per Market Segment
+
 Right Axis- Oil Price USD/Barrel as a Seperate Line
+
 Vertical Market- March 2022, oil price peak at $130/barrel
 
 * Grouped Bar Chart YoY Growth by Segment
 
 X-Axis- Year
-Bars- One Bar per Segment, grouped
-Colour and Highlight the 2022 bars distinctly
+
+Bars- One Bar per Segment
 
 * Elasiticy Bar Chart
 
@@ -91,21 +93,27 @@ Charts:
 
 * Bubble Chart (Value vs Quality vs Volume)
 
-X- axis: Range per dollar (value metric)
-Y axis: Average customer rating (quality metric)
+X- axis: Range per dollar (value)
+
+Y axis: Average customer rating (quality)
+
 Bubble size: Total annual sales units (volume)
 
 
 * Grouped bar chart (Value metrics by Country within Segments)
 
 Filter: Mid-range segment only
+
 X axis: Country of origin
+
 Bars: Range per dollar, Power per dollar, Charging speed per dollar (three bars per country)
 
 
 * Line chart (Chinese brand YoY Sales growth)
 
 X axis: Year
+
 Y axis: YoY sales growth %
-Vertical marker: 2023 (Chinese EV subsidy expiry)
+
+Vertical marker: 2023 (Chinese EV subsidy expiry date)
 
