@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
 from plotly.subplots import make_subplots
 
-df = pd.read_csv("ev_market_2026.csv")  # Also found on Kaggle
+df = pd.read_csv("ev_market_2026.csv")  # Also found on Kaggle @ EV_Market_2026 by TALHA
 
 # Check structure and identify NaNs
 
