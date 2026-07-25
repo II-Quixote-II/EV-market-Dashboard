@@ -54,6 +54,7 @@ In March 2022, the Russo-Ukranian War drove crude oil to $130/Barrel.
 * Do body types that are traditionally associated with high fuel consumption, such as Trucks, and SUVs see higher adoption rates in the 2022-2023 time periods?  Suggesting that people are replacing ICE (Internal Combustion Engines) rather than purchasing an additional vehicle, if so, is this trend consistent throughout periods not impacted by severe oil shocks? 
 * Can a measurable Demand Elasticity, in relation to how sensitive each segment's sales volume was to oil price movement between 2020-2026 be calculated?
 
+
 Charts:
 
 * Dual Axis Line Chart
