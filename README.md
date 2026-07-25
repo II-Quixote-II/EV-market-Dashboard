@@ -38,7 +38,7 @@ Y axis: % of total annual sales
 
 Each brand a different colour, stacked to 100%
 
-* Radar Chart (Tesla vs BYD vs Hyundai vs BMW)
+* Radar Chart 
 
 Axes: Range, Charging Speed, Autopilot Level, Customer Rating, Value per Dollar, Safety Rating
 One polygon per brand
