@@ -22,13 +22,13 @@ Charts: dual-axis line (market share + rating), stacked area (market share by br
 2. Oil Shock Demand Elasticity
 - Did annual EV sales grow disproportionately during 2022–2023, and did budget/mid-range segments grow faster than luxury — suggesting fuel savings as a purchase driver?
 - Did traditionally fuel-heavy body types (trucks, SUVs) see higher adoption during this window, indicating ICE replacement rather than additional-vehicle purchases?
--Can a measurable demand elasticity (% sales change per % oil price change) be calculated by segment across 2020–2026?
+- Can a measurable demand elasticity (% sales change per % oil price change) be calculated by segment across 2020–2026?
 
 Charts: dual-axis line (sales vs. oil price, with March 2022 price-peak marker), grouped bar (YoY growth by segment), elasticity bar chart by segment
 
 3. China's Emerging Manufacturers & Value Proposition
-Does BYD's sales dominance reflect genuine product quality (range/$, rating, charging speed), or a volume/price strategy competitors can't match?
--Did Chinese brand sales trajectories measurably shift after the 2023 subsidy expiration, suggesting policy-driven rather than demand-driven growth?
--On range/$ and horsepower/$, do Chinese manufacturers offer superior, equivalent, or lower value than comparable Western segments?
+- Does BYD's sales dominance reflect genuine product quality (range/$, rating, charging speed), or a volume/price strategy competitors can't match?
+- Did Chinese brand sales trajectories measurably shift after the 2023 subsidy expiration, suggesting policy-driven rather than demand-driven growth?
+- On range/$ and horsepower/$, do Chinese manufacturers offer superior, equivalent, or lower value than comparable Western segments?
 
 Charts: bubble chart (value vs. quality vs. volume), grouped bar (value metrics by country, mid-range segment), line chart (Chinese brand YoY growth with 2023 subsidy-expiry marker)
