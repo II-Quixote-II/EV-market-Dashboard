@@ -10,7 +10,7 @@ North American EV markets were reshaped by the introduction of a $7,500 IRA tax 
 
 This project investigates three questions using EV sales, pricing, and performance data from 2020–2026.
 
-##Key Questions & Analysis
+## Key Questions & Analysis
 
 1. Rising Competitive Pressure
 - Has Tesla's share of total annual EV sales declined year-over-year since 2022, and at what rate?
