@@ -1,119 +1,34 @@
 # Electric-Vehicle-Market-Dashboard-In-Progress-
 
+An analytical dashboard exploring demand trends in the global EV industry, the competitive landscape between manufacturers, and the impact of the 2022 oil shock on adoption patterns.
 
-Context:
+# Overview
 
-In 2026, the Global Electric Vehicle Industry is facing an inflection point.  Despite sales in the EV markets surpassing 20 million annual sales - a 28% share of global car sales the growth is no longer as uniform as it once was.  A wide-reaching array of policies, macroeconomic pressures, technological convergences, and pressure from emerging competitors has now intensified competition between the United States, Europe, China, and South Korea.
+In 2026, the global EV industry is facing an inflection point. Despite EV sales surpassing 20 million units annually- a 28% share of global car sales - growth is no longer uniform across markets. Policy shifts, macroeconomic pressure, and emerging competitors have intensified competition between the United States, Europe, China, and South Korea.
 
-North American EV markets were restructured almost immediately when a $7,500 IRA Tax Credit was introduced, while China’s subsidy to EV manufacturers expired, testing whether or not the dominance of their home-grown makers such as BYD were truly demand-driven or state-manufactured.
+North American EV markets were reshaped by the introduction of a $7,500 IRA tax credit, while the expiration of China's manufacturer subsidies raised the question of whether the dominance of home-grown makers like BYD reflects genuine demand or state support. Separately, the 2022 oil shock triggered by the Russo-Ukrainian War, one of the strongest fuel price events since the 2008 financial crisis - created a strong consumer incentive to adopt EVs, even as the following two years of elevated interest rates cooled demand for higher-end models.
 
-The most notable potential impact to the EV market was the 2022 oil shock caused by the Russo-Ukrainian War, one of the strongest fuel events since the 2008 GFC, creating the strongest consumer incentives to adopt EVs.  However, the two years of heightened interest rates, coinciding with the Russo-Ukrainian War (2021-2023) cooled the appetites for luxury EVs due to higher borrowing costs.
+This project investigates three questions using EV sales, pricing, and performance data from 2020–2026.
 
-=============================================================================
+##Key Questions & Analysis
 
-Questions and Charts:
+1. Rising Competitive Pressure
+- Has Tesla's share of total annual EV sales declined year-over-year since 2022, and at what rate?
+- As Tesla has expanded into more segments, has its average customer rating held steady, or has quality perception diluted with scale?
+- Have competitors closed the gap on the metrics Tesla built its reputation on: range, charging speed, and autopilot capability?
 
+Charts: dual-axis line (market share + rating), stacked area (market share by brand), radar chart (range / charging speed / autopilot / rating / value / safety)
 
-Question 1
+2. Oil Shock Demand Elasticity
+- Did annual EV sales grow disproportionately during 2022–2023, and did budget/mid-range segments grow faster than luxury — suggesting fuel savings as a purchase driver?
+- Did traditionally fuel-heavy body types (trucks, SUVs) see higher adoption during this window, indicating ICE replacement rather than additional-vehicle purchases?
+-Can a measurable demand elasticity (% sales change per % oil price change) be calculated by segment across 2020–2026?
 
-Rising Competitive Pressure
+Charts: dual-axis line (sales vs. oil price, with March 2022 price-peak marker), grouped bar (YoY growth by segment), elasticity bar chart by segment
 
-- Has Tesla's share of Total Annual Sales declined Year-over-Year since 2022, and at what rate
-- As Tesla has expanded their offerings to serve multiple segments, has its average customer ratings held, or has quality perception diluted as volume and variety scaled significantly over recent years?
-- Have competitors closed the gap on metrics that Tesla has previously led and built its global reputation on, such as range, charging speed, and autopilot ability.
+3. China's Emerging Manufacturers & Value Proposition
+Does BYD's sales dominance reflect genuine product quality (range/$, rating, charging speed), or a volume/price strategy competitors can't match?
+-Did Chinese brand sales trajectories measurably shift after the 2023 subsidy expiration, suggesting policy-driven rather than demand-driven growth?
+-On range/$ and horsepower/$, do Chinese manufacturers offer superior, equivalent, or lower value than comparable Western segments?
 
-Charts:
-
-* Dual Axis Line (Market Share + Rating)
-
-Left axis: Tesla's % of total annual sales units
-Right axis: Tesla's average customer rating
-Both plotted 2020-2026
-
-* Stacked Area chart (Market Share by Brand) 
-
-X axis: Year
-
-Y axis: % of total annual sales
-
-Each brand a different colour, stacked to 100%
-
-* Radar Chart 
-
-Axes: Range, Charging Speed, Autopilot Level, Customer Rating, Value per Dollar, Safety Rating
-
-============================================================================
-
-Question 2
-
-Oil shock Demand changes
-
-In March 2022, the Russo-Ukranian War drove crude oil to $130/Barrel.
-
-* Did annual sales grow disproportionately during the 2022-2023 period, if so, did budget and Mid-range segments also show more disproportionate growth compared to luxury segments?  Indicating that fuel cost savings may be a secondary purchasing consideration
-* Do body types that are traditionally associated with high fuel consumption, such as Trucks, and SUVs see higher adoption rates in the 2022-2023 time periods?  Suggesting that people are replacing ICE (Internal Combustion Engines) rather than purchasing an additional vehicle, if so, is this trend consistent throughout periods not impacted by severe oil shocks? 
-* Can a measurable Demand Elasticity, in relation to how sensitive each segment's sales volume was to oil price movement between 2020-2026 be calculated?
-
-
-Charts:
-
-* Dual Axis Line Chart
-
-Left Axis- Annual Sales per Market Segment
-
-Right Axis- Oil Price USD/Barrel as a Seperate Line
-
-Vertical Market- March 2022, oil price peak at $130/barrel
-
-* Grouped Bar Chart YoY Growth by Segment
-
-X-Axis- Year
-
-Bars- One Bar per Segment
-
-* Elasiticy Bar Chart
-
-X-Axis- Market Segment
-
-Y-Axis- Demand Elasticity coefficient (% sales change per % oil price change)
-Horizontal reference line at Zero
-
-===============================================================================
-
-
-Question 3:
-
-China’s Emerging EV Manufacturers and its Value Proposition
-
-- Does BYD’s sales dominance reflect genuine product quality (range/$, customer rating, and charging speed), or volume strategy as price points that competitors aren't able to compete with
-- Did Chinese brand sales trajectories measurably change post-2023 after their subsidy expiration, suggesting that Chinese EV market growth was policy-driven rather than demand-driven
-- On range/$, and Horsepower/$ metrics, do Chinese manufacturers offer superior, equivalent, or lower value compared to equivalent market segments provided by the the Western EV market
-
-Charts:
-
-* Bubble Chart (Value vs Quality vs Volume)
-
-X- axis: Range per dollar (value)
-
-Y axis: Average customer rating (quality)
-
-Bubble size: Total annual sales units (volume)
-
-
-* Grouped bar chart (Value metrics by Country within Segments)
-
-Filter: Mid-range segment only
-
-X axis: Country of origin
-
-Bars: Range per dollar, Power per dollar, Charging speed per dollar (three bars per country)
-
-
-* Line chart (Chinese brand YoY Sales growth)
-
-X axis: Year
-
-Y axis: YoY sales growth %
-
-Vertical marker: 2023 (Chinese EV subsidy expiry date)
-
+Charts: bubble chart (value vs. quality vs. volume), grouped bar (value metrics by country, mid-range segment), line chart (Chinese brand YoY growth with 2023 subsidy-expiry marker)
