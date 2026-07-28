@@ -1,6 +1,4 @@
-Question 2
-
-Oil shock Demand changes
+# Question 2
 
 # Oil SHock Charts
 
