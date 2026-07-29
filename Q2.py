@@ -32,7 +32,7 @@ segment_growth_oil = segment_growth.reset_index().merge(oil_prices, on='year', h
 
 # Elasticity 
 
-# this removes 2020 since no prior year to compare
+#  removes 2020 
 growth_reset = segment_growth.dropna().reset_index()
 
 
@@ -43,24 +43,34 @@ oil_change_df.columns = ['year', 'oil_pct_change']
 
 merged_growth = growth_reset.merge(oil_change_df, on='year', how='inner')
 print(merged_growth)
-# Check this looks right before calculating elasticity
+
 
 # calculate elasticity per segment
-elasticity = {}
+elasticity_data = merged_growth[merged_growth['year'] <= 2025].copy()
+ 
+elasticity_fixed = {}
 for segment in ['Budget', 'Mid-range', 'Premium', 'Luxury']:
-    elasticity[segment] = (
-        merged_growth[segment] / merged_growth['oil_pct_change']
-    ).mean().round(2)
-
+    slope, intercept, r_value, p_value, std_err = stats.linregress(
+        elasticity_data['oil_pct_change'], elasticity_data[segment]
+    )
+    elasticity_fixed[segment] = {
+        'Elasticity': round(slope, 2),
+        'R_squared': round(r_value ** 2, 3),
+        'P_value': round(p_value, 3),
+    }
+ 
 elasticity_df = (
-    pd.DataFrame.from_dict(elasticity, orient='index', columns=['Elasticity'])
+    pd.DataFrame.from_dict(elasticity_fixed, orient='index')
     .sort_values('Elasticity', ascending=False)
 )
-
-print(" Demand elasticy by segment ")
-print("Positive = sales grew when oil rose")
-print("Negative = sales fell when oil rose\n")
+ 
+print(" Demand elasticity by segment")
+print("Elasticity = % change in sales growth per 1% change in oil price")
+print("Positive = sales grew faster when oil rose | Negative = sales grew slower/fell when oil rose\n")
 print(elasticity_df.to_string())
+print(f"\n(n = {len(elasticity_data)} years — small sample, treat p-values as indicative, not conclusive)")
+ 
+
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 
 # Charts
@@ -126,24 +136,26 @@ ax.grid(alpha=0.3, axis='y')
 
 # Highlight 2022 bars
 ax.axvspan(0.9, 1.7, alpha=0.08, color='red')
-ax.text(2.1, ax.get_ylim()[1] * 0.9, '2022\nOil Shock', fontsize=7, color='red')
+ax.text(2.0, ax.get_ylim()[1] * 0.9, '2022\nOil Shock', fontsize=7, color='red')
 
 # Chart 3: Elasticity Bar Chart
 ax = axes[2]
 colors_list = [segment_colors[s] for s in elasticity_df.index]
 bars = ax.barh(elasticity_df.index, elasticity_df['Elasticity'],
                color=colors_list, alpha=0.85, edgecolor='white')
-
-ax.axvline(x=0, color='black', linewidth=0.8)
+ 
+ax.axvline(x=0, color='black', linewidth=1)
 ax.set_xlabel('Elasticity (Sales % change per 1% oil price change)')
-ax.set_title('Demand Elasticity to Oil Price\nby Market Segment')
+ax.set_title('Demand Elasticity to Oil Price)', fontsize=10)
 ax.grid(alpha=0.3, axis='x')
-
-# Label each bar with its value
-for bar, val in zip(bars, elasticity_df['Elasticity']):
-    ax.text(val + 0.05, bar.get_y() + bar.get_height()/2,
-            f'{val:.2f}', va='center', fontsize=9)
-
+ 
+# Labeling each bar with its number and R2 / R Squared
+for bar, val, r2 in zip(bars, elasticity_df['Elasticity'], elasticity_df['R_squared']):
+    offset = 0.05 if val >= 0 else -0.05
+    ha = 'left' if val >= 0 else 'right'
+    ax.text(val + offset, bar.get_y() + bar.get_height()/2,
+            f'{val:.2f}  (R\u00b2={r2:.2f})', va='center', ha=ha, fontsize=8)
+ 
 plt.tight_layout()
 plt.show()
 
