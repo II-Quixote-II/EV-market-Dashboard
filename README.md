@@ -1,4 +1,4 @@
-# Electric-Vehicle-Market-Dashboard-In-Progress-
+# Electric-Vehicle-Market-Dashboard
 
 An analytical dashboard exploring demand trends in the global EV industry, the competitive landscape between manufacturers, and the impact of the 2022 oil shock on adoption patterns.
 
